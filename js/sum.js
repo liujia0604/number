@@ -57,7 +57,7 @@ tap.onclick = function () {
     var newarr = arr.splice(arrIndex, 1)
     var res = parseInt(prompt("请问" + num1 + newarr + num2 + "的答案为多少?"))
     // 获取表格
-    var tableSum = document.querySelector("#tableSum tbody")
+    var tableSum = document.querySelector(".contentTwo #tableSum tbody")
     // 判断符号
     if (newarr == "+") {
         var sum = num1 + num2
