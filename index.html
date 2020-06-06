@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(231, 229, 229);
+        }
+
+        .top {
+            height: 100px;
+            background-color: #51B0EB;
+        }
+
+        .top h1 {
+            color: #fff;
+            padding-left: 30px;
+            line-height: 100px;
+            float: left;
+        }
+
+        .top .message {
+            float: right;
+            width: 250px;
+            margin-top: 30px;
+        }
+
+        .message img {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .message .name {
+            float: left;
+        }
+
+        .top img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .main {
+            height: 800px;
+            overflow: hidden;
+        }
+
+        .main ul {
+            text-align: center;
+        }
+
+        .main ul li {
+            list-style: none;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+        }
+
+        .main ul .active {
+            border-right: 5px solid blue;
+            background-color: cornsilk;
+        }
+
+        .main .left {
+            float: left;
+            width: 15%;
+        }
+
+        .main .right {
+            float: left;
+            height: 100%;
+            background-color: #fff;
+            width: 85%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .main .right h4 {
+            margin: 10px 0;
+        }
+
+        table tr {
+            text-align: center;
+        }
+
+        .contentOne .random,
+        .contentThree .random {
+            width: 200px;
+            height: 30px;
+            margin: 10px 0;
+        }
+
+        .contentOne div,
+        .contentThree div {
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .contentOne div span,
+        .contentThree div span {
+            color: red;
+        }
+
+        table td {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <h1>数学计算能力训练系统</h1>
+            <div class="message">
+                <div class="avatar">
+                    <img src="img/logo.jpg" alt="">
+                </div>
+                <div class="name">
+                    <span>欢迎您!吴双</span><br>
+                    <span>学号:1706440129</span>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="left">
+                <ul>
+                    <li class="active" id="one">初级运算</li>
+                    <li id="two">初级运算记录</li>
+                    <li id="three">高级运算</li>
+                    <li id="four">高级运算记录</li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="contentOne Content">
+                    <h4>1.初级功能介绍:该功能随机出50以内整数的加、减法计算题,通过用户输入答案判断正误</h4>
+                    <h4>2.操作流程:点击按钮获取题目,输入答案即可</h4>
+                    <h4 style="color: red;">注意事项:</h4>
+                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;(1).不要输入数字加汉字,会影响运算结果</h4>
+                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;(2).必须输入数字,如果非数字不被计入答题记录</h4>
+                    <button id="tap" class="random">点我随机答题</button>
+                    <div id="total">您一共答了<span>0</span>题</div>
+                    <div id="trueTotal">恭喜您正确题目数为<span>0</span>题</div>
+                    <div id="per">正确率为<span>0</span>%</div>
+                </div>
+                <div class="contentTwo Content" style="display: none;">
+                    <h3>初级运算答题记录</h3>
+                    <table id="tableSum" border="1" cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th height="50" style="font-size:18px;text-align:center">题号</th>
+                                <th height="50" style="font-size:18px;text-align:center">题目</th>
+                                <th height="50" style="font-size:18px;text-align:center">正确答案</th>
+                                <th height="50" style="font-size:18px;text-align:center">你的答案</th>
+                                <th height="50" style="font-size:18px;text-align:center">正确</th>
+                                <th height="50" style="font-size:18px;text-align:center">错误</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="solo">
+                                <td colspan="6"> 暂无记录</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="contentThree Content" style="display: none;">
+                    <h4>1.高级功能介绍:该功能随机出50以内整数的乘、除法计算题,通过用户输入答案判断正误</h4>
+                    <h4>2.操作流程:点击按钮获取题目,输入答案即可</h4>
+                    <h4 style="color: red;">注意事项:</h4>
+                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;(1).不要输入数字加汉字,会影响运算结果</h4>
+                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;(2).必须输入数字,如果非数字不被计入答题记录</h4>
+                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;(3).除法运算时,四舍五入保留小数点后一位数</h4>
+                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;(4).除法运算时,若除法结果为整数,也必须保留一位小数,例如:结果算出14,填入时应该写14.0</h4>
+                    <button id="tap1" class="random">点我随机答题</button>
+                    <div id="total1">您一共答了<span>0</span>题</div>
+                    <div id="trueTotal1">恭喜您正确题目数为<span>0</span>题</div>
+                    <div id="per1">正确率为<span>0</span>%</div>
+                </div>
+                <div class="contentFour Content" style="display: none;">
+                    <h3>高级运算答题记录</h3>
+                    <table id="tableSum1" border="1" cellpadding="0" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th height="50" style="font-size:18px;text-align:center">题号</th>
+                                <th height="50" style="font-size:18px;text-align:center">题目</th>
+                                <th height="50" style="font-size:18px;text-align:center">正确答案</th>
+                                <th height="50" style="font-size:18px;text-align:center">你的答案</th>
+                                <th height="50" style="font-size:18px;text-align:center">正确</th>
+                                <th height="50" style="font-size:18px;text-align:center">错误</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="solo1">
+                                <td colspan="6"> 暂无记录</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 引入加减运算js -->
+    <script src="js/sum.js"></script>
+    <!-- 引入乘除运算js -->
+    <script src="js/division.js"></script>
+</body>
+
+</html>
